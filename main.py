@@ -34,8 +34,7 @@ def on_click(message):
 def get_text(message):
   markup = telebot.types.InlineKeyboardMarkup()
   markup.add(telebot.types.InlineKeyboardButton('Открыть сайт', callback_data='open'))
-  bot.reply_to(message,message.text,reply_markup = markup) 
-
+  bot.reply_to(message,message.text,reply_markup = markup)
 
 @bot.message_handler(content_types=['photo','file'])
 def get_photo(message):
@@ -44,8 +43,6 @@ def get_photo(message):
   btn2 = telebot.types.InlineKeyboardButton('Буду ждать 😱', callback_data='any2')
   markup.row(btn1,btn2)
   bot.reply_to(message,"Подожди, я пока в процессе разработки", reply_markup = markup) 
-  
- 
   
 
 #------------------------------------Обработка нажатий инлайн кнопок------------------------------------
@@ -56,8 +53,15 @@ def callback_message(callback):
     bot.send_message(callback.message.chat.id, "Что же, надеюсь лишний раз не будешь меня загружать")
   elif callback.data == 'any2':
     bot.send_message(callback.message.chat.id, "Давай, только не уходи никуда")  
-    bot.delete_message(callback.message.chat.id, callback.message.message_id) 
+    bot.delete_message(callback.message.chat.id, callback.message.message_id)
+  elif callback.data == 'open':
+    bot.send_message(callback.message.chat.id, 'Вот ссылка на iPhone 14 Pro: <a href="https://exampleexe.ru/iphone14prophp/">Перейти</a>',
+            parse_mode='html') 
 #-------------------------------------------------------------------------------------------------------  
 
 
   
+
+  
+  
+bot.polling(non_stop=True)

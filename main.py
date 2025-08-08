@@ -54,12 +54,12 @@ def callback_message(callback):
 @bot.message_handler(content_types=['text'])
 def get_text(message):
   markup = telebot.types.InlineKeyboardMarkup()
-  markup.add(telebot.types.InlineKeyboardButton('Открыть сайт',callback_data='open'))
+  markup.add(telebot.types.InlineKeyboardButton('Открыть сайт', callback_data='open'))
   bot.reply_to(message,message.text,reply_markup = markup)
+  
 @bot.callback_query_handler(func=lambda callback: True)
 def sendsite(callback):
   if callback.data == 'open':
-    bot.send_message(callback.message.chat.id, 'Вот ссылка на iPhone 14 Pro: <a href="https://exampleexe.ru/iphone14prophp/">Перейти</a>',parse_mode='html')
-  
+    bot.send_message(callback.message.chat.id,"Что то отправить")
   
 bot.polling(non_stop=True)

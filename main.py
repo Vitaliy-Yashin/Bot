@@ -1,7 +1,7 @@
 import telebot
 import webbrowser
 bot = telebot.TeleBot('8433354441:AAHY0bJvFKhR350xeIDvqWbP8Sq-RXUlXXE')
-buttonlist = ['Разработка 💻','Сети 🌐','Этичный хакинг 🎭']
+buttonlist = ['Разработка 💻','Сети 🌐','Этичный хакинг 🎭','Открыть сайт']
 
 
 @bot.message_handler(commands=['start'])
@@ -20,6 +20,8 @@ def on_click(message):
     bot.send_message(message.chat.id, 'Очень надеюсь, что в ближайшее время выйдут все курсы по этичному хакингу')
   elif message.text == buttonlist[1]:
     bot.send_message(message.chat.id, 'Очень надеюсь, что в ближайшее время выйдут все курсы по сетям')
+  elif message.text == buttonlist[3]:
+      webbrowser.open('https://www.kali.org/')
   else: bot.send_message(message.chat.id, 'Нет у меня такой команды')     
   
 @bot.message_handler(commands=['open'])

@@ -40,7 +40,6 @@ def get_photo(message):
   btn1 = telebot.types.InlineKeyboardButton('Я тебя понял 😎', callback_data='any1')
   btn2 = telebot.types.InlineKeyboardButton('Буду ждать 😱', callback_data='any2')
   markup.row(btn1,btn2)
-  markup.add(btn3)
   bot.reply_to(message,"Подожди, я пока в процессе разработки", reply_markup = markup) 
   
 

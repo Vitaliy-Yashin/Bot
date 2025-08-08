@@ -45,7 +45,6 @@ def get_photo(message):
 def callback_message(callback):
   if callback.data == 'any1':
     bot.delete_message(callback.message.chat.id, callback.message.message_id)
-    bot.send_photo(callback.message.from_user.id, callback.message.photo[0].file_id, callback.message.caption)
     bot.send_message(callback.message.chat.id, "Что же, надеюсь лишний раз не будешь меня загружать")
   elif callback.data == 'any2':
     bot.send_message(callback.message.chat.id, "Давай, только не уходи никуда")  

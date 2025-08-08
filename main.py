@@ -8,7 +8,7 @@ buttonlist = ['Разработка 💻','Сети 🌐','Этичный хак
 def main(message):
   markup = telebot.types.ReplyKeyboardMarkup()
   for button in range(len(buttonlist)):
-    markup.row(telebot.types.KeyboardButton(buttonlist[button]))
+    markup.row(telebot.types.KeyboardButton(buttonlist[button]))  
   bot.send_message(message.chat.id,  f'Привет, {message.from_user.first_name}, если ты за установкой <b style="color:red;">KaliLinux</b>, то тебе <a href="https://www.kali.org/" style="color:red; text-decoration:none;">сюда</a>', parse_mode='html',reply_markup=markup)
   bot.register_next_step_handler(message,on_click)
 
@@ -26,11 +26,8 @@ def on_click(message):
             'Вот ссылка на iPhone 14 Pro: <a href="https://exampleexe.ru/iphone14prophp/">Перейти</a>',
             parse_mode='html'
         )
-  else: bot.send_message(message.chat.id, 'Нет у меня такой команды')     
-  
-@bot.message_handler(commands=['open'])
-def open(message):
-  webbrowser.open('https://www.kali.org/')
+  keyboard = telebot.types.ReplyKeyboardRemove()  
+  bot.send_message(message.chat.id, 'Удаляю клавиатуру', reply_markup=keyboard)      
   
   
 

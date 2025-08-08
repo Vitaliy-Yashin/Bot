@@ -56,9 +56,7 @@ def callback_message(callback):
     bot.send_message(callback.message.chat.id, "Что же, надеюсь лишний раз не будешь меня загружать")
   elif callback.data == 'any2':
     bot.send_message(callback.message.chat.id, "Давай, только не уходи никуда")  
-    bot.delete_message(callback.message.chat.id, callback.message.message_id)
-  elif callback.data == 'open':
-    bot.send_message(callback.message.chat.id,"Что то отправить")  
+    bot.delete_message(callback.message.chat.id, callback.message.message_id) 
 #-------------------------------------------------------------------------------------------------------  
 
 

@@ -39,6 +39,12 @@ def get_photo(message):
   markup.row(btn1,btn2)
   bot.reply_to(message,"Подожди, я пока в процессе разработки", reply_markup = markup) 
   
+@bot.message_handler(content_types=['text'])
+def get_text(message):
+  markup = telebot.types.InlineKeyboardMarkup()
+  markup.add(telebot.types.InlineKeyboardButton('Открыть сайт', callback_data='open'))
+  bot.reply_to(message,message.text,reply_markup = markup)  
+  
 
 #------------------------------------Обработка нажатий инлайн кнопок------------------------------------
 @bot.callback_query_handler(func=lambda callback: True)
@@ -49,17 +55,9 @@ def callback_message(callback):
   elif callback.data == 'any2':
     bot.send_message(callback.message.chat.id, "Давай, только не уходи никуда")  
     bot.delete_message(callback.message.chat.id, callback.message.message_id)
+  elif callback.data == 'open':
+    bot.send_message(callback.message.chat.id,"Что то отправить")  
 #-------------------------------------------------------------------------------------------------------  
 
-@bot.message_handler(content_types=['text'])
-def get_text(message):
-  markup = telebot.types.InlineKeyboardMarkup()
-  markup.add(telebot.types.InlineKeyboardButton('Открыть сайт', callback_data='open'))
-  bot.reply_to(message,message.text,reply_markup = markup)
+
   
-@bot.callback_query_handler(func=lambda callback: True)
-def sendsite(callback):
-  if callback.data == 'open':
-    bot.send_message(callback.message.chat.id,"Что то отправить")
-  
-bot.polling(non_stop=True)

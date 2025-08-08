@@ -39,7 +39,6 @@ def get_photo(message):
   markup = telebot.types.InlineKeyboardMarkup()
   btn1 = telebot.types.InlineKeyboardButton('Я тебя понял 😎', callback_data='any1')
   btn2 = telebot.types.InlineKeyboardButton('Буду ждать 😱', callback_data='any2')
-  btn3 = telebot.types.InlineKeyboardButton('Открыть сайт с Kali 🐉', callback_data='any3')
   markup.row(btn1,btn2)
   markup.add(btn3)
   bot.reply_to(message,"Подожди, я пока в процессе разработки", reply_markup = markup) 
@@ -55,8 +54,9 @@ def callback_message(callback):
     bot.send_message(callback.message.chat.id, "Давай, только не уходи никуда")  
     bot.delete_message(callback.message.chat.id, callback.message.message_id)
   else:
-    webbrowser.open('https://www.kali.org/')
+    bot.send_message(callback.message.chat.id, "Выбери доступное действие")
     bot.delete_message(callback.message.chat.id, callback.message.message_id)
+    get_photo(message=callback.message)
 #-------------------------------------------------------------------------------------------------------  
   
   

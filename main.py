@@ -30,6 +30,12 @@ def on_click(message):
   bot.send_message(message.chat.id, 'Удаляю клавиатуру', reply_markup=keyboard)      
   
   
+@bot.message_handler(content_types=['text'])
+def get_text(message):
+  markup = telebot.types.InlineKeyboardMarkup()
+  markup.add(telebot.types.InlineKeyboardButton('Открыть сайт', callback_data='open'))
+  bot.reply_to(message,message.text,reply_markup = markup) 
+
 
 @bot.message_handler(content_types=['photo','file'])
 def get_photo(message):
@@ -39,11 +45,7 @@ def get_photo(message):
   markup.row(btn1,btn2)
   bot.reply_to(message,"Подожди, я пока в процессе разработки", reply_markup = markup) 
   
-@bot.message_handler(content_types=['text'])
-def get_text(message):
-  markup = telebot.types.InlineKeyboardMarkup()
-  markup.add(telebot.types.InlineKeyboardButton('Открыть сайт', callback_data='open'))
-  bot.reply_to(message,message.text,reply_markup = markup)  
+ 
   
 
 #------------------------------------Обработка нажатий инлайн кнопок------------------------------------

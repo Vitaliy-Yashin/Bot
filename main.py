@@ -21,7 +21,7 @@ def on_click(message):
   elif message.text == buttonlist[1]:
     bot.send_message(message.chat.id, 'Очень надеюсь, что в ближайшее время выйдут все курсы по сетям')
   elif message.text == buttonlist[3]:
-      webbrowser.open('https://www.kali.org/')
+    webbrowser.open('https://www.kali.org/')
   else: bot.send_message(message.chat.id, 'Нет у меня такой команды')     
   
 @bot.message_handler(commands=['open'])

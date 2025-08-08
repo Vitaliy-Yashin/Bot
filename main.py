@@ -21,7 +21,11 @@ def on_click(message):
   elif message.text == buttonlist[1]:
     bot.send_message(message.chat.id, 'Очень надеюсь, что в ближайшее время выйдут все курсы по сетям')
   elif message.text == buttonlist[3]:
-    webbrowser.open('https://exampleexe.ru/iphone14prophp/')
+     bot.send_message(
+            message.chat.id,
+            'Вот ссылка на iPhone 14 Pro: <a href="https://exampleexe.ru/iphone14prophp/">Перейти</a>',
+            parse_mode='html'
+        )
   else: bot.send_message(message.chat.id, 'Нет у меня такой команды')     
   
 @bot.message_handler(commands=['open'])

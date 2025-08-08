@@ -52,7 +52,7 @@ def callback_message(callback):
   elif callback.data == 'any2':
     bot.send_message(callback.message.chat.id, "Давай, только не уходи никуда")  
     bot.delete_message(callback.message.chat.id, callback.message.message_id)
-  else:
+  if callback.message.text != 'Я тебя понял 😎' and callback.message.text !='Буду ждать 😱':
     bot.send_message(callback.message.chat.id, "Выбери доступное действие")
     bot.delete_message(callback.message.chat.id, callback.message.message_id)
     get_photo(message=callback.message)

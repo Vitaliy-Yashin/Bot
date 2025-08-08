@@ -56,7 +56,8 @@ def callback_message(callback):
     bot.delete_message(callback.message.chat.id, callback.message.message_id)
   elif callback.data == 'open':
     bot.send_message(callback.message.chat.id, 'Вот ссылка на iPhone 14 Pro: <a href="https://exampleexe.ru/iphone14prophp/">Перейти</a>',
-            parse_mode='html') 
+            parse_mode='html')
+    bot.delete_message(callback.message.chat.id, callback.message.message_id) 
 #-------------------------------------------------------------------------------------------------------  
 
 

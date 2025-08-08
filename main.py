@@ -58,11 +58,8 @@ def get_text(message):
   bot.reply_to(message,message.text,reply_markup = markup)
 @bot.callback_query_handler(func=lambda callback: True)
 def sendsite(callback):
-    bot.send_message(
-            callback.message.chat.id,
-            'Вот ссылка на iPhone 14 Pro: <a href="https://exampleexe.ru/iphone14prophp/">Перейти</a>',
-            parse_mode='html'
-        )
+  if callback.data == 'open':
+    bot.send_message(callback.message.chat.id, 'Вот ссылка на iPhone 14 Pro: <a href="https://exampleexe.ru/iphone14prophp/">Перейти</a>',parse_mode='html')
   
   
 bot.polling(non_stop=True)

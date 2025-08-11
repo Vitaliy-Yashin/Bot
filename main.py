@@ -35,6 +35,10 @@ def get_text(message):
   if message.text == 'Мой ID':
     bot.reply_to(message,message.chat.id)
     return
+  if message.chat.id != 484209456:
+    bot.send_message(f'Пришло сообщение от, {message.from_user.first_name}')
+    bot.send_message(484209456, message.text)
+    return
   markup = telebot.types.InlineKeyboardMarkup()
   markup.add(telebot.types.InlineKeyboardButton('Открыть сайт', callback_data='open'))
   bot.reply_to(message,message.text,reply_markup = markup)

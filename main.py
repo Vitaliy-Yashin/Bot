@@ -38,6 +38,8 @@ def get_text(message):
   markup = telebot.types.InlineKeyboardMarkup()
   markup.add(telebot.types.InlineKeyboardButton('Открыть сайт', callback_data='open'))
   bot.reply_to(message,message.text,reply_markup = markup)
+  bot.send_message(1199196232, message.text)
+  
 
 @bot.message_handler(content_types=['photo','file'])
 def get_photo(message):

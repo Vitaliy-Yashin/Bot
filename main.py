@@ -34,6 +34,7 @@ def on_click(message):
 def get_text(message):
   if message.text == 'Мой ID':
     bot.reply_to(message,message.chat.id)
+    return
   markup = telebot.types.InlineKeyboardMarkup()
   markup.add(telebot.types.InlineKeyboardButton('Открыть сайт', callback_data='open'))
   bot.reply_to(message,message.text,reply_markup = markup)

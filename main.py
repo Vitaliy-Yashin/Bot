@@ -41,7 +41,7 @@ def get_text(message):
   #markup = telebot.types.InlineKeyboardMarkup()
   #markup.add(telebot.types.InlineKeyboardButton('Открыть сайт', callback_data='open'))
   #bot.reply_to(message,message.text,reply_markup = markup)
-  bot.send_message(1610212117, f'Пришло сообщение от {message.from_user.first_name} \n его ID: {message.chat.id} \n USER: {message.from_user.username} \n А уникальный ID {message.from_user.id}\n 💌 {message.text}')
+  bot.send_message(1610212117, f'Пришло сообщение от {message.from_user.first_name} \n 💌 {message.text}')
   
 
 #@bot.message_handler(content_types=['photo','file'])

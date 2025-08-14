@@ -4,12 +4,13 @@ bot = telebot.TeleBot('8433354441:AAHY0bJvFKhR350xeIDvqWbP8Sq-RXUlXXE')
 buttonlist = ['Разработка 💻','Сети 🌐','Этичный хакинг 🎭','Открыть сайт']
 
 
-#@bot.message_handler(commands=['start'])
-#def main(message):
+@bot.message_handler(commands=['start'])
+def main(message):
   ##markup = telebot.types.ReplyKeyboardMarkup()
   #for button in range(len(buttonlist)):
     #markup.row(telebot.types.KeyboardButton(buttonlist[button]))  
   #bot.send_message(message.chat.id,  f'Привет, {message.from_user.first_name}, если ты за установкой <b style="color:red;">KaliLinux</b>, то тебе <a href="https://www.kali.org/#" style="color:red; text-decoration:none;">сюда</a>', parse_mode='html',reply_markup=markup)
+  bot.send_message(message.chat.id,  f'Привет')
   #bot.register_next_step_handler(message,on_click)
 
 
